@@ -20,7 +20,7 @@ unzip -o "${GITHUB_WORKSPACE}/${WP_SLUG}" || { echo "\n⛔️ Unable to extract 
 
 # Update assets
 echo "\n🗂️ Copying assets\n"
-cp -a "${GITHUB_WORKSPACE}/.wordpress-org" "${SVN_REPO_DIR}/assets/" || { echo "\n⛔️ Unable to copy assets.\n"; exit 1; }
+cp -a "${GITHUB_WORKSPACE}/.wordpress-org/*" "${SVN_REPO_DIR}/assets/" || { echo "\n⛔️ Unable to copy assets.\n"; exit 1; }
 
 # CREATE TAGS/${WP_VERSION} FROM TRUNK
 echo "\n🏷️ Creating tag ${WP_VERSION} from trunk\n"
