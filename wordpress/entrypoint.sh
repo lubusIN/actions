@@ -15,16 +15,16 @@ svn checkout $SVN_REPO_URL $SVN_REPO_DIR || { echo "\n⛔️ Unable to checkout 
 
 # Extract release archive to trunk
 echo "\n🗂️ Extracting release archive to trunk.\n"
-cd ${SVN_REPO_DIR}/trunk/
-unzip -o "${GITHUB_WORKSPACE}/${WP_SLUG}" || { echo "\n⛔️ Unable to extract zip.\n"  }
+cd "${SVN_REPO_DIR}/trunk/"
+unzip -o "${GITHUB_WORKSPACE}/${WP_SLUG}" || { echo "\n⛔️ Unable to extract zip.\n"; exit 1; }
 
 # Update assets
 echo "\n🗂️ Copying assets\n"
-cp -a "${GITHUB_WORKSPACE}/.wordpress-org ${SVN_REPO_DIR}/assets/" || { echo "\n⛔️ Unable to copy assets.\n" }
+cp -a "${GITHUB_WORKSPACE}/.wordpress-org" "${SVN_REPO_DIR}/assets/" || { echo "\n⛔️ Unable to copy assets.\n"; exit 1; }
 
 # CREATE TAGS/${WP_VERSION} FROM TRUNK
 echo "\n🏷️ Creating tag ${WP_VERSION} from trunk\n"
-svn copy ${SVN_REPO_DIR}/trunk ${SVN_REPO_DIR}/tags/${WP_VERSION} || { echo "\n⛔️ Unable to create tag.\n"; exit 1; }
+svn copy "${SVN_REPO_DIR}/trunk" "${SVN_REPO_DIR}/tags/${WP_VERSION}" || { echo "\n⛔️ Unable to create tag.\n"; exit 1; }
 
 # ADD FILES
 echo "\n➕ Add files to commit\n"
@@ -34,7 +34,7 @@ svn status
 
 # CREATE RELEASE COMMIT
 echo "\n✍️ Committing release to wordpress.org ...\n"
-svn commit -m "Release "${WP_VERSION}", see readme.txt for the changelog."  --username ${WP_USERNAME} --password ${WP_PASSWORD} || { echo "\n⛔️ Unable to create release commit.\n"; exit 1; }
+svn commit -m "Release ${WP_VERSION}, see readme.txt for the changelog."  --username "${WP_USERNAME}" --password "${WP_PASSWORD}" || { echo "\n⛔️ Unable to create release commit.\n"; exit 1; }
 
 # PUBLISH TO WORDPRESS.ORG
 echo "\n⬆️ Publishing release.\n"
