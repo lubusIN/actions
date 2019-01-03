@@ -10,6 +10,8 @@ LABEL "com.github.actions.icon"="archive"
 LABEL "com.github.actions.color"="purple"
 
 RUN apt-get update && apt-get install -y zip
+RUN	apt-get clean -y
+RUN rm -rf /var/lib/apt/lists/*
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
