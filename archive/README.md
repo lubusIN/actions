@@ -1,6 +1,6 @@
-<center>
+<p align="center">
 <img src="https://user-images.githubusercontent.com/1039236/51209746-f6bcaf80-1936-11e9-8d0e-78fb92c06cfd.png" />
-</center>
+</p>
 
 <p align="center">
 <a href="https://github.com/lubusIN/actions"><img src="https://img.shields.io/github/license/lubusIN/actions.svg" alt="Licence"></a>

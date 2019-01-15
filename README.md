@@ -1,6 +1,6 @@
-<center>
+<p align="center">
 <img src= "https://user-images.githubusercontent.com/1039236/51209171-a002a600-1935-11e9-838f-656a39b8b124.png" alt="Github Actions By LUBUS" />
-</center>
+</p>
 
 <p align="center">
 <a href="https://github.com/lubusIN/actions"><img src="https://img.shields.io/github/license/lubusIN/actions.svg" alt="Licence"></a>
@@ -15,7 +15,7 @@
 
 # Github Actions
 
-Collection of various `Github Actions` for [lubus](https://lubus.in) repos.
+Collection of various `Github Actions` for [lubus](https://github.com/lubusIN) repos.
 
 <center>
 <img width="40%" src="https://user-images.githubusercontent.com/1039236/51208900-ec011b00-1934-11e9-97d4-9731da690bb5.png" />
@@ -23,8 +23,8 @@ Collection of various `Github Actions` for [lubus](https://lubus.in) repos.
 
 ## Available Actions
 
-- **[Archive](https://github.com/lubusIN/actions/archive)**: Create release zip archive
-- **[WordPress](https://github.com/lubusIN/actions/wordpress)**: Publish plugin to wordpress.org plugin repository
+- **[Archive](https://github.com/lubusIN/actions/tree/master/archive)**: Create release zip archive
+- **[WordPress](https://github.com/lubusIN/actions/tree/master/wordpress)**: Publish plugin to wordpress.org plugin repository
 - _**More Coming Soon ...**_
 
 ## Feedback / Suggestions

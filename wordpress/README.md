@@ -1,6 +1,6 @@
-<center>
+<p align="center">
 <img src="https://user-images.githubusercontent.com/1039236/51209809-253a8a80-1937-11e9-9dc1-0267bcb74390.png" />
-</center>
+</p>
 
 <p align="center">
 <a href="https://github.com/lubusIN/actions"><img src="https://img.shields.io/github/license/lubusIN/actions.svg" alt="Licence"></a>
@@ -19,10 +19,8 @@ Github action to publish your WordPress plugin to wordpress.org plugin repositor
 
 > _**Note**_:
 >
->- WordPress action depends on archive action to build the distibution archive which is published to wordpress.org SVN
->
+>- WordPress action depends on [archive](https://github.com/lubusIN/actions/tree/master/archive) action to build the distibution archive which is published to wordpress.org SVN
 >- Keep all assets for plugin repository under `.wordpress-org`
->
 >- Create numeric release tag e.g. `1.0.0` as action uses same name for SVN tag folder
 
 ## Environment Variables
@@ -32,7 +30,7 @@ Github action to publish your WordPress plugin to wordpress.org plugin repositor
 ## Secrets
 
 - **WP_USERNAME**: your wordpress.org username
-- **WP_PASSWORD**: yourwordpress.org password
+- **WP_PASSWORD**: your wordpress.org password
 
 ## Example Workflow
 
