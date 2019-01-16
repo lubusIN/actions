@@ -15,7 +15,7 @@
 
 # WordPress
 
-Github action to publish your WordPress plugin to wordpress.org plugin repository. Develop plugin on github and once done tag the release and sit back. WordPress action will publish the relese to wordpress.org SVN and create SVN tag based on the github release tag.
+Github action to publish your WordPress plugin to wordpress.org plugin repository. Develop plugin on github and once done tag the release, sit back and relax. WordPress action will publish the release to wordpress.org SVN and create SVN tag based on the github release tag.
 
 > _**Note**_:
 >
@@ -34,54 +34,54 @@ Github action to publish your WordPress plugin to wordpress.org plugin repositor
 
 ## Example Workflow
 
-```
-# Workflow to publish plugin release to wordpress.org
-workflow "Release Plugin" {
-    on = "push"
-    resolves = ["wordpress"]
-}
-
-# Filter for tag
-    action "tag" {
-    uses = "actions/bin/filter@master"
-    args = "tag"
-}
-
-# Install Dependencies
-    action "install" {
-    uses = "actions/npm@e7aaefe"
-    needs = "tag"
-    args = "install"
-}
-
-# Build Plugin
-action "build" {
-    uses = "actions/npm@e7aaefe"
-    needs = ["install"]
-    args = "run build"
-}
-
-# Create Release ZIP archive
-action "archive" {
-    uses = "lubusIN/actions/archive"
-    needs = ["build"]
-    env = {
-            ZIP_FILENAME = "plugin-slug"
-        }
-}
-
-# Publish to wordpress.org repository
-action "wordpress" {
-    uses = "lubusIN/actions/wordpress"
-    needs = ["archive"]
-    env = {
-        WP_SLUG = "plugin-slug"
+``` HCL
+    # Workflow to publish plugin release to wordpress.org
+    workflow "Release Plugin" {
+        on = "push"
+        resolves = ["wordpress"]
     }
-    secrets = [
-        "WP_USERNAME", 
-        "WP_PASSWORD"
-    ]
-}
+
+    # Filter for tag
+    action "tag" {
+        uses = "actions/bin/filter@master"
+        args = "tag"
+    }
+
+    # Install Dependencies
+    action "install" {
+        uses = "actions/npm@e7aaefe"
+        needs = "tag"
+        args = "install"
+    }
+
+    # Build Plugin
+    action "build" {
+        uses = "actions/npm@e7aaefe"
+        needs = ["install"]
+        args = "run build"
+    }
+
+    # Create Release ZIP archive
+    action "archive" {
+        uses = "lubusIN/actions/archive@master"
+        needs = ["build"]
+        env = {
+                ZIP_FILENAME = "plugin-slug"
+            }
+    }
+
+    # Publish to wordpress.org repository
+    action "wordpress" {
+        uses = "lubusIN/actions/wordpress@master"
+        needs = ["archive"]
+        env = {
+            WP_SLUG = "plugin-slug"
+        }
+        secrets = [
+            "WP_USERNAME", 
+            "WP_PASSWORD"
+        ]
+    }
 ```
 
 ## Feedback / Suggestions

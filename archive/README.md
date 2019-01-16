@@ -16,7 +16,7 @@
 # Archive
 
 Github action to create release zip archive.
-Currently action excludes following development/build file/folders:
+Currently action excludes following development/build files/folders:
 - node_modules
 - .git
 - .github
@@ -48,7 +48,7 @@ Currently action excludes following development/build file/folders:
 
 ## Example Workflow
 
-```
+``` HCL
     # Workflow to create distribution archive
     workflow "Create Archive" {
         on = "push"
@@ -56,7 +56,7 @@ Currently action excludes following development/build file/folders:
     }
 
     # Filter for tag
-        action "tag" {
+    action "tag" {
         uses = "actions/bin/filter@master"
         args = "tag"
     }
@@ -64,7 +64,7 @@ Currently action excludes following development/build file/folders:
     # Install Dependencies
     action "install" {
         uses = "actions/npm@e7aaefe"
-            needs = "tag"
+        needs = "tag"
         args = "install"
     }
 
@@ -77,7 +77,7 @@ Currently action excludes following development/build file/folders:
 
     # Create Release ZIP archive
     action "archive" {
-        uses = "lubusIN/actions/archive"
+        uses = "lubusIN/actions/archive@master"
         needs = ["build"]
         env = {
                 ZIP_FILENAME = "archive-filename"

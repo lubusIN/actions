@@ -1,5 +1,5 @@
 <p align="center">
-<img src= "https://user-images.githubusercontent.com/1039236/51209171-a002a600-1935-11e9-838f-656a39b8b124.png" alt="Github Actions By LUBUS" />
+<img src= "https://user-images.githubusercontent.com/1039236/51252322-81e28780-19c1-11e9-8d84-946f86dafa39.png" alt="Github Actions By LUBUS" />
 </p>
 
 <p align="center">
@@ -18,7 +18,7 @@
 Collection of various `Github Actions` for [lubus](https://github.com/lubusIN) repos.
 
 <center>
-<img width="40%" src="https://user-images.githubusercontent.com/1039236/51208900-ec011b00-1934-11e9-97d4-9731da690bb5.png" />
+<img src="https://user-images.githubusercontent.com/1039236/51252323-827b1e00-19c1-11e9-90ca-0f711bd888d0.png" />
 </center>
 
 ## Available Actions
